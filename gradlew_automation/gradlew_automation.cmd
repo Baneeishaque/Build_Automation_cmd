@@ -1,9 +1,17 @@
-::ECHO %1
+@echo off
+
+:: First Parameter is Directory, TODO : Check for this
+echo Directory : %1
+
+::goto end
 ::ECHO %3
 ::ECHO %4
 ::GOTO end
 
 ECHO Generating file list... | tee -a gradlew_automation-results.txt
+DIR %1 /B /S 
+goto end
+
 DIR %1 /B /S | FINDSTR /E build.gradle > gradlew_project-files.list
 ECHO File list generated successfully... | tee -a gradlew_automation-results.txt
 IF "%2"=="I" (PAUSE)
@@ -29,3 +37,4 @@ ECHO Cleaning... | tee -a gradlew_automation-results.txt
 REM DEL project-files.list
 
 :end
+::PAUSE

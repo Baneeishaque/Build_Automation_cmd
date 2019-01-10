@@ -79,18 +79,16 @@ ECHO CD .. >>individual-gradle-builds.bat
 ::DEL %INTEXTFILE%
 ::RENAME %OUTTEXTFILE% %INTEXTFILE%
 
-ECHO Individual-gradle-builds file generated successfully...
+ECHO Individual-gradle-builds file generated successfully... | tee -a recursive-gradle-build-results.txt
 IF "%choice%"=="I" (PAUSE)
 
-:EXE
-ECHO Executing individual-gradle-builds file...
-pause
+ECHO Executing individual-gradle-builds file... | tee -a recursive-gradle-build-results.txt
 CALL individual-gradle-builds.bat
-ECHO Execution of individual-gradle-builds file completed successfully...
+ECHO Execution of individual-gradle-builds file completed successfully... | tee -a recursive-gradle-build-results.txt
 IF "%choice%"=="I" (PAUSE)
 
-GOTO EOF
-ECHO Cleaning...
+goto EOF
+ECHO Cleaning... | tee -a recursive-gradle-build-results.txt
 DEL individual-gradle-builds.bat
 DEL project-files.list
 

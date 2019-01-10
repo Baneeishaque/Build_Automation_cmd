@@ -1,15 +1,16 @@
 @SETLOCAL enabledelayedexpansion
 @ECHO off
 
-::GOTO EXE
 SET choice=A
 ECHO Automatic Mode>recursive-gradle-build-results.txt
 SET /P choice=Interactive execution(press I) or automated exection(default - just press Enter) : 
 IF "%choice%"=="I" (ECHO Interactive Mode | tee recursive-gradle-build-results.txt) ELSE ECHO Automatic Mode
+::goto EOF
 
 SET folder=%CD%
 SET /P folder=Use Current Folder(default - just press Enter) or Enter Another : 
 ECHO Project Folder : %folder% | tee -a recursive-gradle-build-results.txt
+::goto EOF
 
 ECHO Cleaning... | tee -a recursive-gradle-build-results.txt
 taskkill /im java.exe >NUL 2>NUL && (
@@ -19,12 +20,13 @@ taskkill /im java.exe >NUL 2>NUL && (
 )
 FOR /d /r "%~dp0" %%a IN (.gradle\) DO IF EXIST "%%a" RMDIR /s /q "%%a"
 FOR /d /r "%~dp0" %%a IN (build\) DO IF EXIST "%%a" RMDIR /s /q "%%a"
+::goto EOF
 
 ECHO Generating file list... | tee -a recursive-gradle-build-results.txt
-::DIR %folder% /B /S | FINDSTR /E .apk > project-files.list
 DIR %folder% /B /S > project-files.list
 ECHO File list generated successfully... | tee -a recursive-gradle-build-results.txt
 IF "%choice%"=="I" (PAUSE)
+::goto EOF
 
 ECHO Generating individual-gradle-builds file... | tee -a recursive-gradle-build-results.txt
 DEL recursive-gradle-build-results.txt 2>NUL

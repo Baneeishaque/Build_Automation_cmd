@@ -36,7 +36,7 @@ ECHO ECHO. >>individual-gradle-builds.bat
 FOR /f "tokens=*" %%a IN ('findstr "gradlew.bat" project-files.list') DO (
 	ECHO CD %%~dpa >>individual-gradle-builds.bat
 	ECHO ECHO Building %%~dpa ^| tee -a ..\recursive-gradle-build-results.txt>>individual-gradle-builds.bat
-	ECHO CALL gradle_upgrade.bat recursive-gradle-build ^| tee -a ..\recursive-gradle-build-results.txt >>individual-gradle-builds.bat
+	::ECHO CALL gradle_upgrade.bat recursive-gradle-build ^| tee -a ..\recursive-gradle-build-results.txt >>individual-gradle-builds.bat
 	ECHO CALL gradlew.bat installDebug --debug --profile 2^>^&1 ^| tee -a ..\recursive-gradle-build-results.txt >>individual-gradle-builds.bat
 	ECHO ECHO Build finished for %%~dpa ^| tee -a ..\recursive-gradle-build-results.txt>>individual-gradle-builds.bat
 	ECHO ECHO. ^| tee -a ..\recursive-gradle-build-results.txt>>individual-gradle-builds.bat
@@ -45,6 +45,8 @@ FOR /f "tokens=*" %%a IN ('findstr "gradlew.bat" project-files.list') DO (
 	IF "%choice%"=="I" (ECHO pause >>individual-gradle-builds.bat)
 )
 ECHO CD .. >>individual-gradle-builds.bat
+::goto EOF
+pause
 
 SET INTEXTFILE=individual-gradle-builds.bat
 SET OUTTEXTFILE=individual-gradle-builds_out.bat
@@ -60,6 +62,7 @@ FOR /f "tokens=1,* delims=¶" %%A IN ( '"TYPE %INTEXTFILE%"') DO (
 )
 DEL %INTEXTFILE%
 RENAME %OUTTEXTFILE% %INTEXTFILE%
+goto EOF
 
 SET INTEXTFILE=individual-gradle-builds.bat
 SET OUTTEXTFILE=individual-gradle-builds_out.bat

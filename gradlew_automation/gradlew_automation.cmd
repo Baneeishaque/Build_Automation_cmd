@@ -9,20 +9,20 @@ ECHO File list generated successfully... | tee -a gradlew_automation-results.txt
 IF "%2"=="I" (PAUSE)
 ECHO. | tee -a gradlew_automation-results.txt
 FOR /F "TOKENS=*" %%a IN ('TYPE gradlew_project-files.list') DO (
-	ECHO Processing %%a | tee -a gradlew_automation-results.txt
-	CD %%~dpa
-	REM gradle tasks
-	gradlew check
-	REM gradle build
-	gradlew installDebug
-	REM gradle runDebug
-	REM gradle run
-	REM gradle androidInstall
-	REM gradle launchIOSDevice
-	REM gradle clean
-	REM gradle cleanBuildCache
-	CD %3
-	IF "%2"=="I" (PAUSE)
+    ECHO Processing %%a | tee -a gradlew_automation-results.txt
+    CD %%~dpa
+    REM gradle tasks
+    gradlew check
+    REM gradle build
+    gradlew installDebug
+    REM gradle runDebug
+    REM gradle run
+    REM gradle androidInstall
+    REM gradle launchIOSDevice
+    REM gradle clean
+    REM gradle cleanBuildCache
+    CD %3
+    IF "%2"=="I" (PAUSE)
 )
 ECHO.
 ECHO Cleaning... | tee -a gradlew_automation-results.txt

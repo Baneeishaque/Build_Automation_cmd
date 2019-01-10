@@ -5,3 +5,66 @@ Good, no Java Process
 Generating file list... 
 File list generated successfully... 
 Generating individual-gradle-builds file... 
+Individual-gradle-builds file generated successfully... 
+Executing individual-gradle-builds file... 
+Building D:\DK-HP-PA-2000AR\Laboratory\VS_Code_Batch\Automted_Builds\recursive-gradlew-builds\Blank Dark Sample\ 
+Parallel execution with configuration on demand is an incubating feature.
+Configuration 'compile' in project ':app' is deprecated. Use 'implementation' instead.
+Configuration 'androidTestCompile' in project ':app' is deprecated. Use 'androidTestImplementation' instead.
+Configuration 'testCompile' in project ':app' is deprecated. Use 'testImplementation' instead.
+Build cache is an incubating feature.
+:app:preBuild UP-TO-DATE
+:app:preDebugBuild
+:app:compileDebugAidl
+:app:compileDebugRenderscript
+:app:checkDebugManifest
+:app:generateDebugBuildConfig
+:app:generateDebugResValues
+:app:generateDebugResources
+:app:mergeDebugResources
+:app:createDebugCompatibleScreenManifests
+:app:processDebugManifest
+:app:splitsDiscoveryTaskDebug
+:app:processDebugResources
+:app:generateDebugSources
+:app:javaPreCompileDebug
+:app:compileDebugJavaWithJavac
+:app:mergeDebugShaders
+:app:compileDebugShaders
+:app:generateDebugAssets
+:app:mergeDebugAssets
+:app:transformClassesWithDexBuilderForDebug
+:app:transformDexArchiveWithDexMergerForDebug
+:app:compileDebugNdk NO-SOURCE
+:app:mergeDebugJniLibFolders
+:app:transformNativeLibsWithMergeJniLibsForDebug
+:app:processDebugJavaRes NO-SOURCE
+:app:transformResourcesWithMergeJavaResForDebug
+:app:validateSigningDebug
+:app:packageDebug
+:app:buildInfoGeneratorDebug
+:app:compileDebugSources
+:app:assembleDebug
+:app:installDebug[adb]: * daemon not running; starting now at tcp:5037
+[adb]: * daemon started successfully
+ FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:installDebug'.
+> com.android.builder.testing.api.DeviceException: No connected devices!
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.
+
+BUILD FAILED in 1m 37s
+25 actionable tasks: 25 executed
+
+See the profiling report at: file:///D:/DK-HP-PA-2000AR/Laboratory/VS_Code_Batch/Automted_Builds/recursive-gradlew-builds/Blank%20Dark%20Sample/build/reports/profile/profile-2019-01-10-10-57-59.html
+Build finished for D:\DK-HP-PA-2000AR\Laboratory\VS_Code_Batch\Automted_Builds\recursive-gradlew-builds\Blank Dark Sample\ 
+ 
+ 
+ 
+Execution of individual-gradle-builds file completed successfully... 
+Cleaning... 

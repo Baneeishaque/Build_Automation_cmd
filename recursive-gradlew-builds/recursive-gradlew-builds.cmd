@@ -31,13 +31,13 @@ IF "%choice%"=="I" (PAUSE)
 ECHO Generating individual-gradle-builds file... | tee -a recursive-gradle-build-results.txt
 ::DEL recursive-gradle-build-results.txt 2>NUL
 ECHO CD %%~d0 1^>NUL >individual-gradle-builds.bat
-ECHO ECHO. >>individual-gradle-builds.bat
+ECHO ECHO. ^| tee -a ..\recursive-gradle-build-results.txt>>individual-gradle-builds.bat
 ::goto EOF
 FOR /f "tokens=*" %%a IN ('findstr "gradlew.bat" project-files.list') DO (
 	ECHO CD %%~dpa >>individual-gradle-builds.bat
 	ECHO ECHO Building %%~dpa ^| tee -a ..\recursive-gradle-build-results.txt>>individual-gradle-builds.bat
 	::ECHO CALL gradle_upgrade.bat recursive-gradle-build ^| tee -a ..\recursive-gradle-build-results.txt >>individual-gradle-builds.bat
-	ECHO CALL gradlew.bat installDebug --debug --profile 2^>^&1 ^| tee -a ..\recursive-gradle-build-results.txt >>individual-gradle-builds.bat
+	ECHO CALL gradlew.bat installDebug --profile 2^>^&1 ^| tee -a ..\recursive-gradle-build-results.txt >>individual-gradle-builds.bat
 	ECHO ECHO Build finished for %%~dpa ^| tee -a ..\recursive-gradle-build-results.txt>>individual-gradle-builds.bat
 	ECHO ECHO. ^| tee -a ..\recursive-gradle-build-results.txt>>individual-gradle-builds.bat
 	ECHO ECHO. ^| tee -a ..\recursive-gradle-build-results.txt>>individual-gradle-builds.bat
@@ -86,8 +86,8 @@ ECHO Executing individual-gradle-builds file... | tee -a recursive-gradle-build-
 CALL individual-gradle-builds.bat
 ECHO Execution of individual-gradle-builds file completed successfully... | tee -a recursive-gradle-build-results.txt
 IF "%choice%"=="I" (PAUSE)
+::goto EOF
 
-goto EOF
 ECHO Cleaning... | tee -a recursive-gradle-build-results.txt
 DEL individual-gradle-builds.bat
 DEL project-files.list

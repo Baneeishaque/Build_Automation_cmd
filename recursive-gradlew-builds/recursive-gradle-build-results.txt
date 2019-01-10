@@ -1,5 +1,5 @@
 Automatic Mode
-Project Folder : D:\DK-HP-PA-2000AR\Laboratory\VS_Code_Batch\Automted_Builds\recursive-gradlew-builds 
+Project Folder : D:\DK-HP-PA-2000AR\Laboratory\VS_Code_Batch\Automted_Builds\New folder 
 Cleaning... 
 Good, no Java Process 
 Generating file list... 
@@ -7,47 +7,48 @@ File list generated successfully...
 Generating individual-gradle-builds file... 
 Individual-gradle-builds file generated successfully... 
 Executing individual-gradle-builds file... 
-Building D:\DK-HP-PA-2000AR\Laboratory\VS_Code_Batch\Automted_Builds\recursive-gradlew-builds\Blank Dark Sample\ 
+ 
+ 
+ 
+Building D:\DK-HP-PA-2000AR\Laboratory\VS_Code_Batch\Automted_Builds\New folder\Blank Dark Sample\ 
 Parallel execution with configuration on demand is an incubating feature.
 Configuration 'compile' in project ':app' is deprecated. Use 'implementation' instead.
 Configuration 'androidTestCompile' in project ':app' is deprecated. Use 'androidTestImplementation' instead.
 Configuration 'testCompile' in project ':app' is deprecated. Use 'testImplementation' instead.
 Build cache is an incubating feature.
 :app:preBuild UP-TO-DATE
-:app:preDebugBuild
-:app:compileDebugAidl
-:app:compileDebugRenderscript
-:app:checkDebugManifest
-:app:generateDebugBuildConfig
-:app:generateDebugResValues
-:app:generateDebugResources
-:app:mergeDebugResources
-:app:createDebugCompatibleScreenManifests
-:app:processDebugManifest
-:app:splitsDiscoveryTaskDebug
-:app:processDebugResources
-:app:generateDebugSources
-:app:javaPreCompileDebug
-:app:compileDebugJavaWithJavac
-:app:mergeDebugShaders
-:app:compileDebugShaders
-:app:generateDebugAssets
-:app:mergeDebugAssets
-:app:transformClassesWithDexBuilderForDebug
-:app:transformDexArchiveWithDexMergerForDebug
+:app:preDebugBuild UP-TO-DATE
+:app:compileDebugAidl UP-TO-DATE
+:app:compileDebugRenderscript UP-TO-DATE
+:app:checkDebugManifest UP-TO-DATE
+:app:generateDebugBuildConfig UP-TO-DATE
+:app:generateDebugResValues UP-TO-DATE
+:app:generateDebugResources UP-TO-DATE
+:app:mergeDebugResources UP-TO-DATE
+:app:createDebugCompatibleScreenManifests UP-TO-DATE
+:app:processDebugManifest UP-TO-DATE
+:app:splitsDiscoveryTaskDebug UP-TO-DATE
+:app:processDebugResources UP-TO-DATE
+:app:generateDebugSources UP-TO-DATE
+:app:javaPreCompileDebug UP-TO-DATE
+:app:compileDebugJavaWithJavac UP-TO-DATE
+:app:mergeDebugShaders UP-TO-DATE
+:app:compileDebugShaders UP-TO-DATE
+:app:generateDebugAssets UP-TO-DATE
+:app:mergeDebugAssets UP-TO-DATE
+:app:transformClassesWithDexBuilderForDebug UP-TO-DATE
+:app:transformDexArchiveWithDexMergerForDebug UP-TO-DATE
 :app:compileDebugNdk NO-SOURCE
-:app:mergeDebugJniLibFolders
-:app:transformNativeLibsWithMergeJniLibsForDebug
+:app:mergeDebugJniLibFolders UP-TO-DATE
+:app:transformNativeLibsWithMergeJniLibsForDebug UP-TO-DATE
 :app:processDebugJavaRes NO-SOURCE
-:app:transformResourcesWithMergeJavaResForDebug
+:app:transformResourcesWithMergeJavaResForDebug UP-TO-DATE
 :app:validateSigningDebug
-:app:packageDebug
+:app:packageDebug UP-TO-DATE
 :app:buildInfoGeneratorDebug
-:app:compileDebugSources
+:app:compileDebugSources UP-TO-DATE
 :app:assembleDebug
-:app:installDebug[adb]: * daemon not running; starting now at tcp:5037
-[adb]: * daemon started successfully
- FAILED
+:app:installDebug FAILED
 
 FAILURE: Build failed with an exception.
 
@@ -58,11 +59,11 @@ Execution failed for task ':app:installDebug'.
 * Try:
 Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.
 
-BUILD FAILED in 1m 37s
-25 actionable tasks: 25 executed
+BUILD FAILED in 3s
+25 actionable tasks: 3 executed, 22 up-to-date
 
-See the profiling report at: file:///D:/DK-HP-PA-2000AR/Laboratory/VS_Code_Batch/Automted_Builds/recursive-gradlew-builds/Blank%20Dark%20Sample/build/reports/profile/profile-2019-01-10-10-57-59.html
-Build finished for D:\DK-HP-PA-2000AR\Laboratory\VS_Code_Batch\Automted_Builds\recursive-gradlew-builds\Blank Dark Sample\ 
+See the profiling report at: file:///D:/DK-HP-PA-2000AR/Laboratory/VS_Code_Batch/Automted_Builds/New%20folder/Blank%20Dark%20Sample/build/reports/profile/profile-2019-01-10-11-28-35.html
+Build finished for D:\DK-HP-PA-2000AR\Laboratory\VS_Code_Batch\Automted_Builds\New folder\Blank Dark Sample\ 
  
  
  

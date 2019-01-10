@@ -23,28 +23,31 @@ FOR /d /r "%~dp0" %%a IN (build\) DO IF EXIST "%%a" RMDIR /s /q "%%a"
 ::goto EOF
 
 ECHO Generating file list... | tee -a recursive-gradle-build-results.txt
-DIR %folder% /B /S > project-files.list
+DIR "%folder%" /B /S > project-files.list
 ECHO File list generated successfully... | tee -a recursive-gradle-build-results.txt
 IF "%choice%"=="I" (PAUSE)
 ::goto EOF
 
 ECHO Generating individual-gradle-builds file... | tee -a recursive-gradle-build-results.txt
-::DEL recursive-gradle-build-results.txt 2>NUL
 ECHO CD %%~d0 1^>NUL >individual-gradle-builds.bat
-ECHO ECHO. ^| tee -a ..\recursive-gradle-build-results.txt>>individual-gradle-builds.bat
+::Below echo statements not worked, why?
+ECHO ECHO. ^| tee -a %CD%\recursive-gradle-build-results.txt>>individual-gradle-builds.bat
+ECHO ECHO. ^| tee -a %CD%\recursive-gradle-build-results.txt>>individual-gradle-builds.bat
+ECHO ECHO. ^| tee -a %CD%\recursive-gradle-build-results.txt>>individual-gradle-builds.bat
 ::goto EOF
 FOR /f "tokens=*" %%a IN ('findstr "gradlew.bat" project-files.list') DO (
 	ECHO CD %%~dpa >>individual-gradle-builds.bat
-	ECHO ECHO Building %%~dpa ^| tee -a ..\recursive-gradle-build-results.txt>>individual-gradle-builds.bat
-	::ECHO CALL gradle_upgrade.bat recursive-gradle-build ^| tee -a ..\recursive-gradle-build-results.txt >>individual-gradle-builds.bat
-	ECHO CALL gradlew.bat installDebug --profile 2^>^&1 ^| tee -a ..\recursive-gradle-build-results.txt >>individual-gradle-builds.bat
-	ECHO ECHO Build finished for %%~dpa ^| tee -a ..\recursive-gradle-build-results.txt>>individual-gradle-builds.bat
-	ECHO ECHO. ^| tee -a ..\recursive-gradle-build-results.txt>>individual-gradle-builds.bat
-	ECHO ECHO. ^| tee -a ..\recursive-gradle-build-results.txt>>individual-gradle-builds.bat
-	ECHO ECHO. ^| tee -a ..\recursive-gradle-build-results.txt>>individual-gradle-builds.bat
+	ECHO ECHO Building %%~dpa ^| tee -a %CD%\recursive-gradle-build-results.txt>>individual-gradle-builds.bat
+	::ECHO CALL gradle_upgrade.bat recursive-gradle-build ^| tee -a %CD%\recursive-gradle-build-results.txt >>individual-gradle-builds.bat
+	ECHO CALL gradlew.bat installDebug --profile 2^>^&1 ^| tee -a %CD%\recursive-gradle-build-results.txt >>individual-gradle-builds.bat
+	ECHO ECHO Build finished for %%~dpa ^| tee -a %CD%\recursive-gradle-build-results.txt>>individual-gradle-builds.bat
+	ECHO ECHO. ^| tee -a %CD%\recursive-gradle-build-results.txt>>individual-gradle-builds.bat
+	ECHO ECHO. ^| tee -a %CD%\recursive-gradle-build-results.txt>>individual-gradle-builds.bat
+	ECHO ECHO. ^| tee -a %CD%\recursive-gradle-build-results.txt>>individual-gradle-builds.bat
 	IF "%choice%"=="I" (ECHO pause >>individual-gradle-builds.bat)
 )
-ECHO CD .. >>individual-gradle-builds.bat
+ECHO %CD:~0,2% >>individual-gradle-builds.bat
+ECHO CD %CD% >>individual-gradle-builds.bat
 ::goto EOF
 ::pause
 

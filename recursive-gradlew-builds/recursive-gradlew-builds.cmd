@@ -46,38 +46,39 @@ FOR /f "tokens=*" %%a IN ('findstr "gradlew.bat" project-files.list') DO (
 )
 ECHO CD .. >>individual-gradle-builds.bat
 ::goto EOF
-pause
+::pause
 
-SET INTEXTFILE=individual-gradle-builds.bat
-SET OUTTEXTFILE=individual-gradle-builds_out.bat
-SET SEARCHTEXT=ECHO Building %~dp0
-SET REPLACETEXT=ECHO Building 
-SET OUTPUTLINE=
+::SET INTEXTFILE=individual-gradle-builds.bat
+::SET OUTTEXTFILE=individual-gradle-builds_out.bat
+::SET SEARCHTEXT=ECHO Building %~dp0
+::SET REPLACETEXT=ECHO Building 
+::SET OUTPUTLINE=
 
-FOR /f "tokens=1,* delims=¶" %%A IN ( '"TYPE %INTEXTFILE%"') DO (
-	SET string=%%A
-	SET modified=!string:%SEARCHTEXT%=%REPLACETEXT%!
+::FOR /f "tokens=1,* delims=¶" %%A IN ( '"TYPE %INTEXTFILE%"') DO (
+	::SET string=%%A
+	::SET modified=!string:%SEARCHTEXT%=%REPLACETEXT%!
 
-	ECHO !modified! >> %OUTTEXTFILE%
-)
-DEL %INTEXTFILE%
-RENAME %OUTTEXTFILE% %INTEXTFILE%
-goto EOF
+	::ECHO !modified! >> %OUTTEXTFILE%
+::)
+::DEL %INTEXTFILE%
+::RENAME %OUTTEXTFILE% %INTEXTFILE%
+::goto EOF
 
-SET INTEXTFILE=individual-gradle-builds.bat
-SET OUTTEXTFILE=individual-gradle-builds_out.bat
-SET SEARCHTEXT=ECHO Build finished for %~dp0
-SET REPLACETEXT=ECHO Build finished for 
-SET OUTPUTLINE=
+::SET INTEXTFILE=individual-gradle-builds.bat
+::SET OUTTEXTFILE=individual-gradle-builds_out.bat
+::SET SEARCHTEXT=ECHO Build finished for %~dp0
+::SET REPLACETEXT=ECHO Build finished for 
+::SET OUTPUTLINE=
 
-FOR /f "tokens=1,* delims=¶" %%A IN ( '"TYPE %INTEXTFILE%"') DO (
-	SET string=%%A
-	SET modified=!string:%SEARCHTEXT%=%REPLACETEXT%!
+::FOR /f "tokens=1,* delims=¶" %%A IN ( '"TYPE %INTEXTFILE%"') DO (
+	::SET string=%%A
+	::SET modified=!string:%SEARCHTEXT%=%REPLACETEXT%!
 
-	ECHO !modified! >> %OUTTEXTFILE%
-)
-DEL %INTEXTFILE%
-RENAME %OUTTEXTFILE% %INTEXTFILE%
+	::ECHO !modified! >> %OUTTEXTFILE%
+::)
+::DEL %INTEXTFILE%
+::RENAME %OUTTEXTFILE% %INTEXTFILE%
+
 ECHO Individual-gradle-builds file generated successfully...
 IF "%choice%"=="I" (PAUSE)
 

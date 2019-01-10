@@ -29,9 +29,10 @@ IF "%choice%"=="I" (PAUSE)
 ::goto EOF
 
 ECHO Generating individual-gradle-builds file... | tee -a recursive-gradle-build-results.txt
-DEL recursive-gradle-build-results.txt 2>NUL
+::DEL recursive-gradle-build-results.txt 2>NUL
 ECHO CD %%~d0 1^>NUL >individual-gradle-builds.bat
 ECHO ECHO. >>individual-gradle-builds.bat
+::goto EOF
 FOR /f "tokens=*" %%a IN ('findstr "gradlew.bat" project-files.list') DO (
 	ECHO CD %%~dpa >>individual-gradle-builds.bat
 	ECHO ECHO Building %%~dpa ^| tee -a ..\recursive-gradle-build-results.txt>>individual-gradle-builds.bat
